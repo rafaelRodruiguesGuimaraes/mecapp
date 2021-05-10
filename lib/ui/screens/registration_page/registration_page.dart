@@ -23,21 +23,25 @@ class _RegistrationPageState extends State<RegistrationPage> {
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   register() async {
-    var user_data = await db.collection("users").add({
-      "name": name.text,
-      "email": email.text,
-      "password": password.text,
-      "confirm_password": confirmPassword.text,
-    });
+    var user_data = await db.collection("users").add(
+      {
+        "name": name.text,
+        "email": email.text,
+        "password": password.text,
+        "confirm_password": confirmPassword.text,
+      },
+    );
     final SharedPreferences prefs = await _prefs;
+
+    await prefs.setString("user_name", name.text);
+
     if (user_data.id != null) {
       prefs.getString(
         "id_user",
       );
       await prefs.setBool("logado", true);
-      await prefs.setString("user_name", name.text);
 
-      return true;
+      return;
     }
   }
 
@@ -73,7 +77,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     children: [
                       TextInput(
                         controller: name,
-                        inputError: inputError,
                         title: 'Nome',
                         obscureText: false,
                         validator: (value) {
@@ -87,7 +90,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       ),
                       TextInput(
                         controller: email,
-                        inputError: inputError,
                         title: 'E-mail',
                         obscureText: false,
                         validator: (value) {
@@ -101,7 +103,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       ),
                       TextInput(
                         controller: password,
-                        inputError: inputError,
                         title: 'Senha',
                         obscureText: true,
                         validator: (value) {
@@ -116,7 +117,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       ),
                       TextInput(
                         controller: confirmPassword,
-                        inputError: inputError,
                         title: 'Confirmar senha',
                         obscureText: true,
                         validator: (value) {

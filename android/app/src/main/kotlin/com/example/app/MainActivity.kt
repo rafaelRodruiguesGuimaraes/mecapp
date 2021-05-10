@@ -1,4 +1,4 @@
-package com.mkti.appexemplo
+package com.rafarodgui.mecapp
 
 import io.flutter.embedding.android.FlutterActivity
 

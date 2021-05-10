@@ -39,7 +39,6 @@ class _PasswordRecoverState extends State<PasswordRecover> {
                   child: Column(
                     children: [
                       TextInput(
-                        inputError: inputError,
                         title: 'Nova senha',
                         obscureText: true,
                       ),
@@ -47,7 +46,6 @@ class _PasswordRecoverState extends State<PasswordRecover> {
                         height: 10,
                       ),
                       TextInput(
-                        inputError: inputError,
                         title: 'Confirmar nova senha',
                         obscureText: true,
                       ),

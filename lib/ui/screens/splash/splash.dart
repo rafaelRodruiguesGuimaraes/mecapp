@@ -15,20 +15,20 @@ class _Splash extends State<Splash> {
     return new Timer(_duration, navigationPage);
   }
 
-  bool loadding = true;
-
-  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  //Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   void navigationPage() async {
-    final SharedPreferences prefs = await _prefs;
-    bool logado = prefs.getBool("logado");
-    if (logado == null) {
-      Navigator.pushNamed(context, '/login');
-      return;
-    }
-    !logado
-        ? Navigator.pushNamed(context, '/login')
-        : Navigator.pushNamed(context, '/search_page');
+    // final SharedPreferences prefs = await _prefs;
+    // bool logado = prefs.getBool("logado");
+    // if (logado == null) {
+    //   Navigator.pushNamed(context, '/login_page');
+    //   return;
+    // }
+    // !logado
+    //     ? Navigator.pushNamed(context, '/login_page')
+    //     : Navigator.pushNamed(context, '/home_page');
+
+    Navigator.pushNamed(context, '/login_page');
   }
 
   @override

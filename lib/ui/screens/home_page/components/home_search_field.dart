@@ -1,31 +1,22 @@
 import 'package:flutter/material.dart';
 
-class TextInput extends StatelessWidget {
-  const TextInput({
+class HomeSearchField extends StatelessWidget {
+  const HomeSearchField({
     Key key,
-    this.title,
-    this.obscureText,
-    this.validator,
-    this.controller,
   }) : super(key: key);
-
-  final String title;
-  final bool obscureText;
-  final String Function(String) validator;
-  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
-      validator: validator,
-      obscureText: obscureText,
+      cursorHeight: 30,
+      controller: null,
       decoration: InputDecoration(
-        labelText: title,
-        labelStyle: TextStyle(
-          color: Colors.grey,
-        ),
+        hintText: 'Pesquisar',
         hintStyle: TextStyle(color: Colors.black26),
+        prefixIcon: Icon(
+          Icons.search,
+          color: Theme.of(context).primaryColor,
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(10),
@@ -38,7 +29,7 @@ class TextInput extends StatelessWidget {
           ),
           borderSide: BorderSide(color: Colors.transparent),
         ),
-        fillColor: Color(0xffF6F6F8),
+        fillColor: Color(0xffeeeeee),
         filled: true,
       ),
     );

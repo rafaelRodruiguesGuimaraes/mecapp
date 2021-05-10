@@ -43,7 +43,9 @@ class _LoginPageState extends State<LoginPage> {
           return;
         }
         if (user['password'] != password.text) {
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+          //ScaffoldMessenger.of(context).hideCurrentSnackBar();
           return;
         }
       },
@@ -63,11 +65,9 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 10,
                 ),
-                Text(
-                  'Seu Logo',
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
+                Container(
+                  child: Image(
+                    image: AssetImage('images/logo_app.jpg'),
                   ),
                 ),
                 Column(
